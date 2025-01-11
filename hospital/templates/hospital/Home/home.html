@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Home
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function(){
+      var dragTheme = window.localStorage.getItem('checkbox');
+      if(dragTheme==="true"){
+      	$("#jhamela").removeClass("darkEdition");
+        	window.localStorage.setItem('checkbox', true);
+        	var dragTheme = window.localStorage.getItem('checkbox');
+        	console.log(dragTheme);
+        	$('#checkbox').prop('checked', true);
+      }
+      $("#checkbox").click(function(){
+        if($('#checkbox').prop("checked")){
+        	$("#jhamela").removeClass("darkEdition");
+        	window.localStorage.setItem('checkbox', true);
+        	var dragTheme = window.localStorage.getItem('checkbox');
+        	console.log(dragTheme);	
+        }
+        else{
+        	$("#jhamela").addClass("darkEdition");
+        	window.localStorage.setItem('checkbox', false);
+        	var dragTheme = window.localStorage.getItem('checkbox');
+        	console.log(dragTheme);	
+        }
+      });
+    });
+  </script>
+  <style type="text/css">
+  	
+  	.minarea{
+  		width: 40%;
+  		display: inline-block;
+  		box-sizing: border-box;
+  	}
+  	
+  	.maxarea{
+  		width: 55%;
+  		display: inline-block;
+  		box-sizing: border-box;
+  	}
+  	
+  	.leftside{
+  		float: left;
+  		text-align: left;
+  		padding-left: 5%;
+  	}
+  	
+  	.rightside{
+  		float: right;
+  		text-align: left;
+  		padding-right: 5%;
+  	}
+  
+  @media (max-width: 1000px)
+  {
+  	
+  	.minarea{
+  		width: 100%;
+  		display: inline-block;
+  		margin-top: 30px;
+  		margin-bottom: 30px;
+  	}
+  	
+  	.maxarea{
+  		width: 100%;
+  		display: inline-block;
+  		margin-top: 30px;
+  		margin-bottom: 30px;
+  	}
+  	
+  	.leftside{
+  		float: none;
+  		text-align: center;
+  		padding-left: 0px;
+  	}
+
+  	.leftside img{
+  		width: 60%;
+  		height: auto;
+  	}
+  	
+  	.rightside{
+  		float: none;
+  		text-align: center;
+  		padding-right: 0px;
+  	}
+
+  	.rightside img{
+  		width: 60%;
+  		height: auto;
+  	}
+  }
+  @media (max-width: 500px)
+  {
+  	.leftside{
+  		float: none;
+  	}
+
+  	.leftside img{
+  		width: 90%;
+  		height: auto;
+  	}
+  	
+  	.rightside{
+  		float: none;
+  	}
+
+  	.rightside img{
+  		width: 90%;
+  		height: auto;
+  	}
+  }
+  </style>
+</head>
+
+<body id="jhamela" class="darkEdition lightEdition">
+  <!-- Navbar -->
+  {% include "hospital/Home/preloader.html" %}
+  <div id="myDiv" class="animate-bottom" style="display:none;">
+  {% include "hospital/Home/nav_main.html" %}
+  <!-- End Navbar -->
+  
+  <div style="text-align: center;position: relative;margin-bottom: 150px">
+  <br><br><br>
+  <h1 class="sps" style="font-weight: bolder;">Medisync Care</h1>
+  <!-- <h5 class="sps glow">You’ll Love the Way We Care for You</h5> -->
+  <h3 class="sps" style="font-weight: bolder;">Est. 2019</h3>
+  <img src="{%static 'assets/img/homepage-banner.svg' %}" width="80%">
+  <br><br><br>
+  <p style="width: 70%;margin-left:auto;margin-right:auto;margin-top: 100px;font-family: sans-serif;line-height: 30px;font-size: 1.2em" class="sps">
+	At Medisync Care, we blend advanced medical treatment with a patient-centric approach. Our transparent system incorporates patient feedback to ensure the highest level of care and satisfaction.<br><br>We break the stigma in healthcare by focusing on both treatment excellence and patient engagement, creating a seamless and compassionate experience for all.   
+</div>
+  <div class="container">
+    <a href="{% url 'register_pat.html' %}" class="btn btn-primary btn-round btn-lg">Take Appointment</a>
+  </div><br><br><br><br><br><br><br>
+  <div style="align-items: center;">
+    <div class="mainbox sps">
+      
+      <div class="rightside minarea">
+      	<img src="{%static 'assets/img/proj4.png' %}" height="97%" width="95%">
+      </div>
+      <div class="leftside maxarea">
+      	<h2>INTEGRATED ADMIN PANEL</h2>
+      	<p>Many healthcare institutions today struggle to meet the necessary standards for patient satisfaction and effective complaint resolution, often due to the lack of an integrated hospital management platform. Recognizing this challenge, we have proactively addressed it.</p>
+      	<p>Introducing our Integrated Admin Panel, a solution designed to oversee and manage patient and doctor-related matters efficiently. This platform connects authorities, patients, and staff directly, ensuring transparency, accountability, and a fair approach to healthcare management.</p>
+      </div>
+      
+    </div>
+    <div class="mainboxr sps">
+     
+      <div class="leftside minarea">
+      	<img src="{%static 'assets/img/proj2.png' %}" height="80%" width="85%">
+      </div>
+      <div class="rightside maxarea">
+      	<h2 class="animation-element slide-left in-view">FACILITIES FOR THE ELDERLY ONES</h2>
+      	<p>Recognizing the unique needs of our elderly patients, we have implemented several features to ensure their comfort and convenience. </p>
+      	<p>These include priority appointment scheduling, easy access to their medical history and detailed reports with a single click, and personalized supervision through video consultations (for those unable to visit in person). These initiatives set a new standard for providing exceptional care to our elderly patients.</p>
+      </div>
+      
+    </div>
+    <div class="mainbox sps">
+      
+      <div class="rightside minarea" style="margin-top: 30px">
+      	<img src="{%static 'assets/img/proj3.svg' %}" height="97%" width="95%">
+      </div>
+      <div class="leftside maxarea">
+      	<h2>VIDEO CONFERENCING FACILITIES</h2>
+      	<p>During the challenging times of COVID-19, it has become increasingly difficult for patients, especially the elderly, to attend regular check-ups in person.</p>
+      	<p>To address this, we have introduced an innovative solution—Over the Call Supervision (OCS). This feature allows patients to consult with doctors via video conferencing, ensuring that their healthcare needs are met without the need to leave their homes.</p>
+      </div>
+      
+    </div>
+    <div class="mainboxr sps" style="margin-bottom: 200px">
+      
+      <div class="leftside minarea">
+      	<img src="{%static 'assets/img/proj1.svg' %}" height="97%" width="95%">
+      </div>
+      <div class="rightside maxarea">
+      	<h2>MEASURES FOR COVID-19</h2>
+      	<p>We recognize that COVID-19 patients are among the most vulnerable and require specialized care, as well as isolation from other patients for effective treatment.</p>
+      	<p>Committed to transparency, we provide our patients with access to real-time COVID statistics. Additionally, we have established a dedicated COVID ward with up-to-date records of available beds, vaccination status, and patient history, all meticulously tracked to ensure the best possible care.</p>
+      </div>
+      
+    </div>
+  </div>
+	{% include "hospital/Home/testimonials.html" %}  
+  </div>
+ 
+
+  {% include "hospital/Home/footer.html" %}
+</div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap-material-design.min.js' %}"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  
+ <!-- Chartist JS -->
+ <script src="{% static 'assets/js/plugins/chartist.min.js' %}"></script>
+ <!--  Notifications Plugin    -->
+ <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
+ <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+</body>
+
+</html>
